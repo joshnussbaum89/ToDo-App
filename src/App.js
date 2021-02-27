@@ -1,25 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// API Key
+import apiKey from './config'
+
+// Components
+import Header from './components/Header';
+
+class App extends Component {
+  state = {
+    weather: '',
+    weatherDesc: '',
+    loading: true
+  }
+
+  componentDidMount() {
+    this.fetchWeather(`https://api.openweathermap.org/data/2.5/weather?q=Madison&appid=${apiKey}`)
+      .then(this.setState({
+        loading: true
+      }))
+      .catch(error => console.log('Uh Oh!', error))
+  }
+
+  fetchWeather = async (string) => {
+    const response = await fetch(string);
+    const weatherResponse = await response.json();
+
+    // Set weather icon to the current weather
+    const icon = `http://openweathermap.org/img/wn/${weatherResponse.weather[0].icon}@2x.png`
+    const description = weatherResponse.weather[0].description;
+    await this.setState({
+      weather: icon,
+      weatherDesc: description,
+      loading: false
+    });
+
+    return weatherResponse;
+  }
+
+  render() {
+    return (
+      <div className="App" >
+        {this.state.loading
+          ? <h1 className='loading'>Loading...</h1>
+          : <Header
+            weatherIcon={this.state.weather}
+            weatherDesc={this.state.weatherDesc}
+          />}
+      </div>
+    );
+  }
 }
 
 export default App;
