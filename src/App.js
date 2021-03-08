@@ -5,9 +5,12 @@ import apiKey from './config'
 
 // Components
 import Header from './components/Header';
+import TodoTracker from './components/TodoTracker';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 class App extends Component {
   state = {
+    todos: [],
     weather: '',
     weatherDesc: '',
     loading: true
@@ -37,15 +40,45 @@ class App extends Component {
     return weatherResponse;
   }
 
+  // Add task to UI using value passed in from input field
+  addTask = (value) => {
+    this.setState({
+      todos: [...this.state.todos, 'Task'] // pass value
+    });
+    console.log(this.state.todos);
+  }
+
+  // Delete last task on the list
+  deleteTask = () => {
+    const todoArray = this.state.todos;
+    todoArray.splice(0, 1);
+    this.setState({
+      todos: todoArray
+    })
+    console.log('todo deleted!')
+  }
+
   render() {
     return (
       <div className="App" >
         {this.state.loading
-          ? <h1 className='loading'>Loading...</h1>
-          : <Header
-            weatherIcon={this.state.weather}
-            weatherDesc={this.state.weatherDesc}
-          />}
+          ?
+          <div className="loading">
+            <CircularProgress />
+          </div>
+          :
+          <>
+            <Header
+              weatherIcon={this.state.weather}
+              weatherDesc={this.state.weatherDesc}
+            />
+            <TodoTracker
+              addTask={this.addTask}
+              deleteTask={this.deleteTask}
+              todos={this.state.todos}
+            />
+          </>
+        }
       </div>
     );
   }

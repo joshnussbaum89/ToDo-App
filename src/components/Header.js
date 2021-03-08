@@ -52,7 +52,6 @@ const headerStyles = {
 
 const h1 = {
     fontWeight: '100',
-    color: theme.colorPrimary,
     borderRadius: '5px',
     padding: '1rem'
 }
