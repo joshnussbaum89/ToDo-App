@@ -1,15 +1,21 @@
-import React from 'react';
 import theme from '../theme';
+import CheckRoundedIcon from '@material-ui/icons/CheckRounded';
 
 const Todo = ({ todoValue, itemNumber }) => {
     return (
         <>
-            <li style={item}>{todoValue} number {itemNumber + 1}</li>
+            <li style={item}>{itemNumber + 1}. {todoValue}
+                {/* toggle icon for completed or uncompleted tasks */}
+                <CheckRoundedIcon color='primary' />
+            </li>
         </>
     )
 }
 
 const item = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     backgroundColor: theme.colorGrey,
     margin: '.2rem 0',
     padding: '2rem 1rem',

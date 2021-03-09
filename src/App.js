@@ -11,6 +11,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 class App extends Component {
   state = {
     todos: [],
+    todoValue: '',
     weather: '',
     weatherDesc: '',
     loading: true
@@ -41,21 +42,28 @@ class App extends Component {
   }
 
   // Add task to UI using value passed in from input field
-  addTask = (value) => {
+  addTask = () => {
     this.setState({
-      todos: [...this.state.todos, 'Task'] // pass value
+      todos: [...this.state.todos, this.state.todoValue], // pass value
+      todoValue: ''
     });
-    console.log(this.state.todos);
+  }
+
+  handleChange = (event) => {
+    this.setState({
+      todoValue: event.target.value
+    });
   }
 
   // Delete last task on the list
   deleteTask = () => {
-    const todoArray = this.state.todos;
-    todoArray.splice(0, 1);
+    // copy values to this.state.todos OBJECT to an ARRAY
+    const todoArray = [...this.state.todos]
+    todoArray.pop();
+
     this.setState({
       todos: todoArray
-    })
-    console.log('todo deleted!')
+    });
   }
 
   render() {
@@ -74,8 +82,10 @@ class App extends Component {
             />
             <TodoTracker
               addTask={this.addTask}
+              handleChange={this.handleChange}
               deleteTask={this.deleteTask}
               todos={this.state.todos}
+              todoValue={this.state.todoValue}
             />
           </>
         }

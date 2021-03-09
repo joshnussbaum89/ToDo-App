@@ -1,17 +1,20 @@
-import React from 'react';
+import TextField from '@material-ui/core/TextField';
 import theme from '../theme';
 import Btns from './Btns';
 import Todo from './Todo';
 
-const TodoTracker = ({ addTask, deleteTask, todos }) => {
+const TodoTracker = ({ addTask, handleChange, deleteTask, todos, todoValue }) => {
     // count items in todo list
     const todoList = todos.map((todo, index) => (
-        <Todo key={index} todoValue={todo} itemNumber={index}/>
+        <>
+            <Todo key={index} todoValue={todo} itemNumber={index} />
+        </>
     ))
 
     return (
-        <div className="todo-container" style={TodoContainer}>
+        <div className="todo-container" style={TodoContainer} >
             <Btns addTask={addTask} deleteTask={deleteTask} />
+            <TextField style={input} onChange={handleChange} label='Task' value={todoValue} />
             {todoList.length === 0 ?
                 <h2 style={h2}>Add tasks...</h2>
                 :
@@ -30,7 +33,7 @@ const TodoContainer = {
     padding: '1rem',
     border: `1px solid ${theme.colorGrey}`,
     borderRadius: '5px',
-    height: '500px',
+    height: '450px',
     width: '90%',
     maxWidth: '1000px',
     overflowY: 'scroll'
@@ -44,6 +47,11 @@ const list = {
 const h2 = {
     textAlign: 'center',
     fontWeight: '300',
+}
+
+const input = {
+    margin: '1rem 0',
+    width: '100%'
 }
 
 export default TodoTracker
