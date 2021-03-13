@@ -10,6 +10,7 @@
 }
 
 body {
+    background-color: #f2f5f5;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -25,12 +26,33 @@ p {
 }
 
 .App {
+    background-color: white;
     margin: auto;
-    max-width: 1000px;
+    width: 95%;
+    max-width: 1100px;
+    padding-bottom: 1rem;
+    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
 }
 
 .loading {
     text-align: center;
     display: block;
     margin: 2rem auto;
+}
+
+.complete {
+    border-bottom: 3px solid #3f51b5;
+    box-shadow: none;
+}
+
+li {
+    transition: 0.4s ease-in-out;
+    text-transform: capitalize;
+    border-bottom: 3px solid #f50057;
+    /* box shadow from material ui styles */
+    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+}
+
+li:hover {
+    cursor: pointer;
 }

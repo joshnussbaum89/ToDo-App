@@ -1,12 +1,15 @@
 import theme from '../theme';
-import CheckRoundedIcon from '@material-ui/icons/CheckRounded';
+import CreateSharpIcon from '@material-ui/icons/CreateSharp';
 
-const Todo = ({ todoValue, itemNumber }) => {
+const Todo = ({
+    todo,
+    id,
+    toggleCompletedTask,
+}) => {
     return (
         <>
-            <li style={item}>{itemNumber + 1}. {todoValue}
-                {/* toggle icon for completed or uncompleted tasks */}
-                <CheckRoundedIcon color='primary' />
+            <li style={item} onClick={toggleCompletedTask}>{id + 1}. {todo}
+                <CreateSharpIcon />
             </li>
         </>
     )
@@ -17,7 +20,7 @@ const item = {
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: theme.colorGrey,
-    margin: '.2rem 0',
+    margin: '.5rem 0',
     padding: '2rem 1rem',
     listStyleType: 'none',
     borderRadius: '5px',

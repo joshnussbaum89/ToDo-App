@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 
 // API Key
 import apiKey from './config'
@@ -45,14 +45,21 @@ class App extends Component {
   addTask = () => {
     this.setState({
       todos: [...this.state.todos, this.state.todoValue], // pass value
-      todoValue: ''
+      todoValue: '',
     });
   }
 
+  // Track user input in Task input field
   handleChange = (event) => {
+    console.log(event.target.value)
     this.setState({
       todoValue: event.target.value
     });
+  }
+
+  toggleCompletedTask = (e) => {
+    e.target.classList.toggle('complete');
+    return e.target.classList.contains('complete');
   }
 
   // Delete last task on the list
@@ -85,7 +92,9 @@ class App extends Component {
               handleChange={this.handleChange}
               deleteTask={this.deleteTask}
               todos={this.state.todos}
-              todoValue={this.state.todoValue}
+              todo={this.state.todoValue}
+              toggleCompletedTask={this.toggleCompletedTask}
+              isCompleted={this.state.isCompleted}
             />
           </>
         }

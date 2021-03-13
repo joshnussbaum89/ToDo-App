@@ -3,7 +3,7 @@ import theme from '../theme';
 const Clock = ({ time }) => {
     return (
         <>
-            <p style={clockStyles}>{time.toLocaleTimeString()}</p>
+            <p style={clockStyles}>{time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
         </>
     )
 }
