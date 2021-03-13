@@ -44,7 +44,6 @@ const TodoContainer = {
     borderRadius: '5px',
     height: '450px',
     width: '90%',
-    maxWidth: '1000px',
     overflowY: 'scroll'
 }
 const list = {
@@ -56,7 +55,7 @@ const h2 = {
     fontWeight: '300',
 }
 const input = {
-    margin: '1rem 0',
+    margin: '3rem 0 1rem',
     width: '100%'
 }
 

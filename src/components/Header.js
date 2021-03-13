@@ -34,7 +34,7 @@ class Header extends Component {
                     weatherIcon={this.props.weatherIcon}
                     weatherDesc={this.props.weatherDesc}
                 />
-                <h1 style={h1}>ToDos</h1>
+                <h1 style={h1}>NoteCards</h1>
                 <Clock time={this.state.time} />
             </header>
         )
@@ -53,7 +53,7 @@ const headerStyles = {
 const h1 = {
     fontWeight: '100',
     borderRadius: '5px',
-    padding: '1rem'
+    paddingTop: '1rem'
 }
 
 export default Header
