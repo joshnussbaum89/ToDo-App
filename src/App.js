@@ -14,11 +14,13 @@ class App extends Component {
     todoValue: '',
     weather: '',
     weatherDesc: '',
+    tempurature: 0,
     loading: true
   }
 
   componentDidMount() {
-    this.fetchWeather(`https://api.openweathermap.org/data/2.5/weather?q=Madison&appid=${apiKey}`)
+    // const weatherGreetingCity = prompt('what city are you in?');
+    this.fetchWeather(`https://api.openweathermap.org/data/2.5/weather?zip=53703&units=imperial&appid=${apiKey}`)
       .then(this.setState({
         loading: true
       }))
@@ -32,9 +34,12 @@ class App extends Component {
     // Set weather icon to the current weather
     const icon = `http://openweathermap.org/img/wn/${weatherResponse.weather[0].icon}@2x.png`
     const description = weatherResponse.weather[0].description;
+    const temp = weatherResponse.main.temp;
+
     await this.setState({
       weather: icon,
       weatherDesc: description,
+      tempurature: temp,
       loading: false
     });
 
@@ -86,6 +91,7 @@ class App extends Component {
             <Header
               weatherIcon={this.state.weather}
               weatherDesc={this.state.weatherDesc}
+              temperature={this.state.tempurature}
             />
             <TodoTracker
               addTask={this.addTask}

@@ -42,7 +42,7 @@ const TodoContainer = {
     margin: 'auto',
     padding: '1rem',
     borderRadius: '5px',
-    height: '450px',
+    height: '420px',
     width: '90%',
     overflowY: 'scroll'
 }

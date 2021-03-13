@@ -33,6 +33,7 @@ class Header extends Component {
                 <Weather
                     weatherIcon={this.props.weatherIcon}
                     weatherDesc={this.props.weatherDesc}
+                    temperature={this.props.temperature}
                 />
                 <h1 style={h1}>NoteCards</h1>
                 <Clock time={this.state.time} />
@@ -49,7 +50,6 @@ const headerStyles = {
     alignItems: 'center',
     margin: '2rem'
 };
-
 const h1 = {
     fontWeight: '100',
     borderRadius: '5px',

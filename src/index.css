@@ -1,11 +1,16 @@
 /* Material Icons */
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-
 /* Roboto Font (ideal for Material-UI) */
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
-
 /* Title h1 font */
 @import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");
+
+/* box shadow and colors from material ui styles */
+:root {
+    --primary: #3f51b5;
+    --secondary: #f50057;
+    --boxShadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+}
 
 /* Global Styles */
 * {
@@ -34,15 +39,25 @@ p {
     margin: 0;
 }
 
+li {
+    transition: 0.4s ease-in-out;
+    text-transform: capitalize;
+    border-bottom: 3px solid var(--secondary);
+    box-shadow: var(--boxShadow);
+}
+
+li:hover {
+    cursor: pointer;
+}
+
 .App {
     background-color: white;
     margin: auto;
     width: 95%;
     border-radius: 2px;
-    /* max-width: 1200px; */
     padding: 0;
     margin-bottom: 2rem;
-    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+    box-shadow: var(--boxShadow);
 }
 
 .loading {
@@ -52,7 +67,7 @@ p {
 }
 
 .complete {
-    border-bottom: 3px solid #3f51b5;
+    border-bottom: 3px solid var(--primary);
     box-shadow: none;
 }
 
@@ -60,22 +75,11 @@ p {
     height: 100%;
 }
 
-li {
-    transition: 0.4s ease-in-out;
-    text-transform: capitalize;
-    border-bottom: 3px solid #f50057;
-    /* box shadow from material ui styles */
-    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
-}
-
-li:hover {
-    cursor: pointer;
-}
-
 .clock {
     display: none;
 }
 
+/* Screen Sizes >= Tablet Screens  */
 @media (min-width: 768px) {
     .clock {
         display: block;
