@@ -7,81 +7,82 @@
 
 /* box shadow and colors from material ui styles */
 :root {
-    --primary: #3f51b5;
-    --secondary: #f50057;
-    --boxShadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+  --primary: #3f51b5;
+  --secondary: #f50057;
+  --boxShadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
+    0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
 }
 
 /* Global Styles */
 * {
-    font-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
-    /* background-color: #f2f5f5; */
-    /* background: linear-gradient(#114357, #F29492); */
-    /* background: linear-gradient(#FFB75E, #ED8F03); */
-    /* background: linear-gradient(#8e9eab, #eef2f3); */
-    background: linear-gradient(#3f51b5, #2a0845);
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  /* background-color: #f2f5f5; */
+  /* background: linear-gradient(#114357, #F29492); */
+  /* background: linear-gradient(#FFB75E, #ED8F03); */
+  /* background: linear-gradient(#8e9eab, #eef2f3); */
+  background: linear-gradient(#3f51b5, #2a0845);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 h1 {
-    font-family: "Shadows Into Light", cursive;
-    font-size: 3rem;
-    margin: 0;
-    padding: 0;
+  font-family: "Shadows Into Light", cursive;
+  font-size: 3rem;
+  margin: 0;
+  padding: 0;
 }
 
 p {
-    margin: 0;
+  margin: 0;
 }
 
 li {
-    transition: 0.4s ease-in-out;
-    text-transform: capitalize;
-    border-bottom: 3px solid var(--secondary);
-    box-shadow: var(--boxShadow);
+  transition: 0.4s ease-in-out;
+  text-transform: capitalize;
+  border-bottom: 3px solid var(--secondary);
+  box-shadow: var(--boxShadow);
 }
 
 li:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .App {
-    background-color: white;
-    margin: auto;
-    width: 95%;
-    border-radius: 2px;
-    padding: 0;
-    margin-bottom: 2rem;
-    box-shadow: var(--boxShadow);
+  background-color: white;
+  margin: auto;
+  width: 95%;
+  border-radius: 2px;
+  padding: 0;
+  margin-bottom: 2rem;
+  box-shadow: var(--boxShadow);
 }
 
 .loading {
-    text-align: center;
-    display: block;
-    margin: 2rem auto;
+  text-align: center;
+  display: block;
+  margin: 2rem auto;
 }
 
 .complete {
-    border-bottom: 3px solid var(--primary);
-    box-shadow: none;
+  border-bottom: 3px solid var(--primary);
+  box-shadow: none;
 }
 
 .todo-container {
-    height: 100%;
+  height: 100%;
 }
 
 .clock {
-    display: none;
+  display: none;
 }
 
 /* Screen Sizes >= Tablet Screens  */
 @media (min-width: 768px) {
-    .clock {
-        display: block;
-    }
+  .clock {
+    display: block;
+  }
 }

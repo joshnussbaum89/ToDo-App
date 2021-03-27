@@ -1,59 +1,32 @@
-import React, { Component } from 'react';
-import theme from '../theme';
+import React from "react";
+import theme from "../theme";
 
 // Components
-import Weather from './Weather';
-import Clock from './Clock';
+import Weather from "./Weather";
+import Clock from "./Clock";
 
-class Header extends Component {
-    state = {
-        time: new Date()
-    }
-
-    componentDidMount() {
-        this.timerID = setInterval(
-            () => this.tick(),
-            1000
-        );
-    }
-
-    componentWillUnmount() {
-        clearInterval(this.timerID)
-    }
-
-    tick = () => {
-        this.setState({
-            time: new Date()
-        });
-    }
-
-    render() {
-        return (
-            <header style={headerStyles} >
-                <Weather
-                    weatherIcon={this.props.weatherIcon}
-                    weatherDesc={this.props.weatherDesc}
-                    temperature={this.props.temperature}
-                />
-                <h1 style={h1}>NoteCards</h1>
-                <Clock time={this.state.time} />
-            </header>
-        )
-    }
+const Header = () => {
+  return (
+    <header style={headerStyles}>
+      <Weather />
+      <h1 style={h1}>NoteCards</h1>
+      <Clock />
+    </header>
+  );
 };
 
 const headerStyles = {
-    fontSize: theme.lengthMd3,
-    color: theme.colorText,
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    margin: '2rem'
+  fontSize: theme.lengthMd3,
+  color: theme.colorText,
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  margin: "2rem",
 };
 const h1 = {
-    fontWeight: '100',
-    borderRadius: '5px',
-    paddingTop: '1rem'
-}
+  fontWeight: "100",
+  borderRadius: "5px",
+  paddingTop: "1rem",
+};
 
-export default Header
+export default Header;
